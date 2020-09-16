@@ -6,7 +6,7 @@ import {
 
 // import logo from './logo.svg';
 import './App.css';
-import { NetItem } from './datatypes';
+import { NetItem } from '../server/datatypes';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
