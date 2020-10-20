@@ -2,8 +2,9 @@ import React from 'react'
 import Draggable from 'react-draggable';
 import CloseIcon from '@material-ui/icons/Close';
 
-import { NodeType, CatType, Pos2d} from '../server/datatypes'
-import { shortestString } from '../server/utils'
+import { shorterString } from './utils'
+import { NodeType, CatType, Pos2d } from './datatypes'
+
 
 type infoBoardProps = {
   pos: Pos2d,
@@ -24,20 +25,23 @@ export default (props: infoBoardProps) => {
   return (
     <Draggable>
       <div className="infoBoard" style={boardStyle}>
-        <CloseIcon className="closeButton" onClick={() => props.close()}/>
-        <div className="title">
-          <div className="name">
-            {node.label}
-          </div>
-          <div className="categorie" style={catStyle}>
-            {(cat != undefined) ? cat.label : ""}
+        <CloseIcon className="closeButton" onClick={() => props.close()} />
+        <div className="content">
+          <img src={('image' in node) ? node.image : ''} alt=""/>
+          <div className="title">
+            <div className="name">
+              {node.label}
+            </div>
+            <div className="categorie" style={catStyle}>
+              {(cat !== undefined) ? cat.label : ""}
+            </div>
           </div>
           <div className="describe">
-            { shortestString(node.info, 80) }
+            { shorterString(node.info, 80) }
           </div>
           {
             ('link' in node) && (node['link'] !== "") ?
-            <a className="link" href={node.link}> Link </a> :
+            <a className="link" href={node.link}>Link</a> :
             null
           }
         </div>
@@ -45,4 +49,3 @@ export default (props: infoBoardProps) => {
     </Draggable>
   )
 }
-

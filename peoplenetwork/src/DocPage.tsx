@@ -6,6 +6,7 @@ import Header from './Header'
 import Footer from './Footer'
 import './DocPage.css'
 
+
 type DocPageProps = {
   title: string,
   sourceUrl: string,
@@ -13,8 +14,9 @@ type DocPageProps = {
 type DocPageState = {
   error: null | Error,
   isLoaded: boolean,
-  content: string | null,  
+  content: string | null,
 }
+
 
 export default class DocPage extends React.Component<DocPageProps, DocPageState> {
   constructor(props: DocPageProps) {
@@ -46,9 +48,11 @@ export default class DocPage extends React.Component<DocPageProps, DocPageState>
 
   render() {
     const { error, isLoaded, content } = this.state
-    if (error) return <div>Error: {error.message}</div>
-    else if (!isLoaded) return <div>Loading...</div>
-    else {
+    if (error) {
+      return <div>Error: {error.message}</div>
+    } else if (!isLoaded) {
+      return <div>Loading...</div>
+    } else {
       return (
         <>
           <Header title={this.props.title}/>
@@ -56,14 +60,15 @@ export default class DocPage extends React.Component<DocPageProps, DocPageState>
             <div className="doc">
               <ReactMarkdown
                 source={content as string}
-                renderers={{code: CodeBlock}}
+                renderers={{ code: CodeBlock }}
                 escapeHtml={false}
               />
             </div>
           </div>
           <Footer/>
-        </>    
+        </>
       )
     }
   }
+
 }

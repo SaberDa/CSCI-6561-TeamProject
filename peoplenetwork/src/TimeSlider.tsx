@@ -1,8 +1,13 @@
+/**
+ * Modified from this:
+ *   https://material-ui.com/zh/components/slider/#custom-marks
+ */
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 
-import { TimePoint } from '../server/datatypes'
+import { TimePoint } from './datatypes';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,9 +21,9 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type TimeSliderProps = {
-  time: number,
-  timePoints: Array<TimePoint>,
-  setTime: (t: number) => void,
+    time: number,
+    timePoints: Array<TimePoint>,
+    setTime: (t: number) => void,
 }
 
 export default (props: TimeSliderProps) => {
@@ -40,19 +45,19 @@ export default (props: TimeSliderProps) => {
   }
 
   return (
-    <div className={classes.root=" timeSlider"}>
-      <div className="label">Time Slider</div>
-      <div className="slider">
-        <Slider
-          defaultValue={props.time}
-          aria-labelledby="discrete-slider-custom"
-          min={0}
-          max={props.timePoints.length-1}
-          step={null}
-          valueLabelDisplay="off"
-          marks={marks}
-          onChange={handleChange}
-        />
+    <div className={classes.root+" timeSlider"}>
+        <div className="label">Time Slider</div>
+        <div className="slider">
+          <Slider
+            defaultValue={props.time}
+            aria-labelledby="discrete-slider-custom"
+            min={0}
+            max={props.timePoints.length-1}
+            step={null}
+            valueLabelDisplay="off"
+            marks={marks}
+            onChange={handleChange}
+          />
       </div>
     </div>
   );

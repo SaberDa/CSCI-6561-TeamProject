@@ -1,0 +1,212 @@
+.netView canvas {
+  max-width: 100%;
+  min-height: 600px;
+}
+
+canvas {
+  outline: none;
+  background-color: white;
+}
+
+#full-screen-region:not(:fullscreen) {
+  border: 1px solid #BFBFBF;
+  max-height: 600px;
+}
+
+#full-screen-region:fullscreen {
+  background-color: white;
+}
+
+.toolbar {
+  height: 1em;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+button:focus {outline:0;}
+button:active {
+  box-shadow: 0 1px #666;
+  transform: translateY(1px);
+}
+
+button {
+  color: #24292e;
+  background-color: #fafbfc;
+  border-color: rgba(27,31,35,.15);
+  padding: 3px 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.toolbar .rightside {
+  float: right;
+}
+
+.toolbar button {
+  margin-left: 1em;
+}
+
+.canvas-wrap {
+  position: relative
+}
+
+.infoBoard {
+  background-color: #ababab;
+  width: 250px;
+  height: 280px;
+  position:absolute;
+  box-shadow: 3px 4px 2.5px #aaaaaa;
+  opacity: 0.85;
+}
+
+.infoBoard .content {
+  padding: 10px;
+  padding-top: 18px;
+}
+
+.infoBoard .closeButton {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.infoBoard .closeButton:hover {
+  color: #666666;
+  transform: translateY(-0.5px);
+}
+
+.infoBoard .closeButton:active {
+  transform: translateY(0.5px);
+}
+
+.infoBoard .title {
+  margin-top: 10px;
+}
+
+.infoBoard .name {
+  font-weight: bold; 
+  font-size: 20px;
+  display: inline;
+}
+
+.infoBoard .categorie {
+  font-weight: bold;
+  font-size: 12px;
+  display: inline;
+}
+
+.infoBoard .describe {
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.infoBoard img {
+  display: block;
+  max-width: 200px;
+  max-height: 130px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+.infoBoard .link {
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.react-tabs__tab {
+  font-weight: 200;
+}
+
+.react-tabs__tab-list {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.viewControl {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.viewControl .MuiSvgIcon-root {
+  font-size: 1.6rem;
+  color: #666;
+  padding-right: 0.2em;
+}
+
+.viewControl .MuiSvgIcon-root:hover {
+  color: #48b3e9;
+  transform: translateY(-0.5px);
+}
+
+.viewControl .MuiSvgIcon-root:active {
+  transform: translateY(0.5px);
+}
+
+.EditOptionsDialog {
+  display: inline;
+}
+
+#edit-options-content {
+  width: 550px;
+  font-size: 16px;
+  resize: none;
+}
+
+
+#searchDialog, #filterDialog {
+  padding-left: 16px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  padding-top: 10px;
+}
+
+#searchDialog input {
+  width: 25em;
+}
+
+#filterDialog > div > input {
+  width: 400px;
+}
+
+#tuneDialog {
+  width: 400px;
+}
+
+.MuiInputBase-input {
+  font-size: 16px !important;
+}
+
+#progressBar {
+  position: absolute;
+  z-index: 10;
+  top: 46%;
+  left: 48%;
+}
+
+.timeSlider {
+  margin-left: 35%;
+  margin-top: 1em;
+}
+
+.timeSlider .label {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+#importDialog {
+  width: 400px;
+}
+
+#importDialog > div.MuiInputBase-root > input {
+  width: 380px;
+}
