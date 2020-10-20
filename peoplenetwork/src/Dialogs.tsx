@@ -604,7 +604,7 @@ class ImportDialog extends React.Component<ImportDialogProps, ImportDialogState>
     super(props)
     this.state = {
       open: false,
-      sourceUrl: "https://raw.githubusercontent.com/AniNet-Project/crawler/master/data/bgm.json",
+      sourceUrl: "",
       items: [],
       selected: null,
     }

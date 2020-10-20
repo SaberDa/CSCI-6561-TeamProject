@@ -24,7 +24,7 @@ export default class Comments extends Component<CommentsProps, {}> {
         script.setAttribute("src", "https://utteranc.es/client.js");
         script.setAttribute("crossorigin", "anonymous");
         script.setAttribute("async", "true");
-        script.setAttribute("repo", "AniNet-Project/aninet-project.github.io");
+        script.setAttribute("repo", "https://github.com/SaberDa/CSCI-6561-TeamProject");
         script.setAttribute("issue-term", this.props.issueTerm);
         script.setAttribute( "theme", "github-light");
         anchor.appendChild(script);
