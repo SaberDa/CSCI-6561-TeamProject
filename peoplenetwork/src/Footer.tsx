@@ -24,10 +24,11 @@ export default class Footer extends React.Component<object, object> {
     return (
       <div className="footer">
         <div className="container">
-          <a href="https://github.com/SaberDa/CSCI-6561-TeamProject">
+          // TODO
+          <a href="https://github.com/">
             <GitHubIcon/>
           </a>
-          <a href="gli97@gwmail.gwu.edu">
+          <a href="XXX@qq.com">
             <EmailIcon id="email-icon"/>
           </a>
 

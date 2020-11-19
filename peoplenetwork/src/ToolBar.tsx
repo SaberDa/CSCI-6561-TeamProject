@@ -46,8 +46,8 @@ class UploadBtn extends React.Component<UploadBtnProps, UploadBtnState> {
   }
   
   render(){
-    // return <button onClick={this.handleFileSelect}>Open File (JSON)</button>
-    return <button onClick={this.handleFileSelect}> TODO </button>
+    return <button onClick={this.handleFileSelect}>Open File (JSON)</button>
+    // return <button onClick={this.handleFileSelect}> TODO </button>
   }
 }
 
@@ -64,8 +64,8 @@ export default class ToolBar extends React.Component<ToolBarProps, object> {
         <div className="rightside">
           <ImportDialog info={this.props.info} setInfo={this.props.setInfo}/>
           <UploadBtn setInfo={this.props.setInfo}/>
-          {/* <button onClick={() => {exportToJson(this.props.info, "export.json")}}>Upload File (JSON)</button> */}
-          <button onClick={() => {exportToJson(this.props.info, "export.json")}}> TODO </button>
+          <button onClick={() => {exportToJson(this.props.info, "export.json")}}>Upload File (JSON)</button>
+          {/* <button onClick={() => {exportToJson(this.props.info, "export.json")}}> TODO </button> */}
         </div>
       </div>
     )
