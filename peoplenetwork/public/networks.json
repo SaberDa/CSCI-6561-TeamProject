@@ -2,5 +2,10 @@
     {
         "name": "One Hundred Years of Solitude",
         "titleImg": "imgs/OneHundredYearsOfSolitude/title.jpg"
+    },
+    {
+        "name": "空之境界",
+        "titleImg": "imgs/KaraNoKyoukai/title.jpg",
+        "url": "data/KaraNoKyoukai.json"
     }
 ]
