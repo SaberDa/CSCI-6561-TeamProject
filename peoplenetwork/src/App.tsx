@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 import {
   HashRouter as Router,
   Route
@@ -105,21 +106,31 @@ class App extends React.Component<AppProps, AppState> {
     }
   }
 
-  componentDidMount() {
-    fetch("networks.json")
-      .then(res => res.json())
-      .then((data) => {
-        this.setState({
-          isLoaded: true,
-          items: data
-        })
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        })
-      })
+  // componentDidMount() {
+  //   fetch("networks.json")
+  //     .then(res => res.json())
+  //     .then((data) => {
+  //       this.setState({
+  //         isLoaded: true,
+  //         items: data
+  //       })
+  //     },
+  //     (error) => {
+  //       this.setState({
+  //         isLoaded: true,
+  //         error
+  //       })
+  //     })
+  // }
+  async componentDidMount() {
+    const res = await axios.get('/file/data');
+    if (res.data.status != '0') {
+      return
+    }
+    this.setState({
+      isLoaded: true,
+      items: res.data.data
+    })
   }
 
   render() {
