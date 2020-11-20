@@ -18,6 +18,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/react-syntax-highlighter": "^11.0.4",
     "@types/vis": "^4.21.20",
+    "axios": "^0.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-draggable": "^4.4.3",
@@ -38,6 +39,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "http://47.107.91.80:3000",
   "browserslist": {
     "production": [
       ">0.2%",

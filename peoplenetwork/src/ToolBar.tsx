@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 import { exportToJson } from './utils'
 import { ImportDialog } from './Dialogs'
@@ -11,9 +12,26 @@ const buildFileSelector = (setInfo: setInfoMth) => {
   fileSelector.setAttribute('type', 'file');
   fileSelector.setAttribute('multiple', 'multiple');
   fileSelector.setAttribute('accept', '.json')
-  fileSelector.addEventListener('change', (event) => {
+  fileSelector.addEventListener('change', async (event) => {
     const target = event.target as HTMLInputElement
     let file: File = (target.files as FileList)[0]
+    const formData = new FormData();
+    formData.append("file", file);
+    const res = await axios({
+      method: 'post',
+      url: '/file/json',
+      data: formData,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    });
+    if(res.data.status != '0') {
+      // 获取失败
+      return
+    }
+    // 上传成功了
+    console.log(res.data.data)
+    return
     let reader = new FileReader()
     reader.onload = () => {
       setInfo(JSON.parse(reader.result as string))
@@ -26,7 +44,7 @@ const buildFileSelector = (setInfo: setInfoMth) => {
 }
 
 type UploadBtnProps = {
-  setInfo: setInfoMth
+  setInfo: setInfoMth,
 }
 
 type UploadBtnState = {
@@ -58,6 +76,18 @@ type ToolBarProps = {
 
 
 export default class ToolBar extends React.Component<ToolBarProps, object> {
+  componentDidMount() {
+    this.getData()
+  }
+  getData = async () => {
+    const res = await axios.get('/file/data');
+    if(res.data.status != '0') {
+      // 获取失败
+      return
+    }
+    console.log(res.data.data)
+  }
+  
   render() {
     return (
       <div className="toolbar">
@@ -66,6 +96,7 @@ export default class ToolBar extends React.Component<ToolBarProps, object> {
           <UploadBtn setInfo={this.props.setInfo}/>
           <button onClick={() => {exportToJson(this.props.info, "export.json")}}>Upload File (JSON)</button>
           {/* <button onClick={() => {exportToJson(this.props.info, "export.json")}}> TODO </button> */}
+          <UploadBtn setInfo={() => {}} />
         </div>
       </div>
     )
