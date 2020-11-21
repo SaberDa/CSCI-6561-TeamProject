@@ -35,7 +35,8 @@ const getUploadDir = async (filename, ctx) => {
   const saveFileName = date + path.extname(filename);
   const commonDir = path.join(dir, saveFileName);
   const uploadDir = path.resolve(__dirname, '../../public', commonDir);
-  const saveDir = `${origin}/${commonDir}`;
+  // const saveDir = `${origin}/${commonDir}`;
+  const saveDir = `/${commonDir}`;
   return {
     uploadDir,
     saveDir: saveDir.replace(/\\/g, '/')
@@ -111,6 +112,7 @@ const dataFile = path.join(__dirname, '../../networks.json');
 // 上传json文件后的回调
 const jsonCallback = async (info) => {
   const { title: name, path: url } = info;
+  console.log('test:' + url);
   const fileStr = await fs.readFileSync(dataFile);
   const data = fileStr ? JSON.parse(fileStr) : [];
   data.push({ name, url });
