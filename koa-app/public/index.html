@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>首页</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <input type="file" name="upfile" id="upfile" value="" />
+    <input type="button" value="上传" id="btn"/>
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+      $(function() {
+        // 参数设置，若用默认值可以省略以下面代
+        toastr.options = {
+          "closeButton": false, //是否显示关闭按钮
+          "debug": false, //是否使用debug模式
+          "positionClass": "toast-top-full-width",//弹出窗的位置
+          "showDuration": "300",//显示的动画时间
+          "hideDuration": "1000",//消失的动画时间
+          "timeOut": "3000", //展现时间
+          "extendedTimeOut": "1000",//加长展示时间
+          "showEasing": "swing",//显示时的动画缓冲方式
+          "hideEasing": "linear",//消失时的动画缓冲方式
+          "showMethod": "fadeIn",//显示时的动画方式
+          "hideMethod": "fadeOut" //消失时的动画方式
+        };
+
+        $("#btn").click(function(){
+          var formData = new FormData();
+          formData.append("file", $("#upfile")[0].files[0]);
+          $.ajax({
+              type: "POST",
+              url: "/file/json",
+              data: formData,
+              processData: false,
+              contentType: false,
+              success:function(res){
+                // console.log(res);
+                if(res.status != '0') {
+                  toastr.error(res.msg);
+                  return
+                }
+                toastr.success('上传成功');
+              }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
