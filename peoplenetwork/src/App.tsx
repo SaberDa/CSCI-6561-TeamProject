@@ -124,7 +124,7 @@ class App extends React.Component<AppProps, AppState> {
   // }
   async componentDidMount() {
     const res = await axios.get('/file/data');
-    if (res.data.status != '0') {
+    if (res.data.status !== '0') {
       return
     }
     this.setState({

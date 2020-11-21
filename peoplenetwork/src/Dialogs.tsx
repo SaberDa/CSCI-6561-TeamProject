@@ -92,11 +92,11 @@ class EditOptionsDialog extends React.Component<EditOptionsDialogProps, EditOpti
   render() {
     return (
       <div className="EditOptionsDialog">
-        <Tooltip title="Edit network view configuration" placement="top">
+        <Tooltip title="Edit" placement="top">
           <EditIcon onClick={() => {this.handleClickOpen()}}/>
         </Tooltip>
         <Dialog open={this.state.open} onClose={() => {this.handleClose()}} aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">Edit network view configuration</DialogTitle>
+          <DialogTitle id="form-dialog-title">Edit</DialogTitle>
           <DialogContent>
             <DialogContentText>
               Configure the network view directly through JSON. For details of configurable items, please refer to
@@ -261,7 +261,7 @@ class FilterDialog extends React.Component<FilterDialogProps, FilterDialogState>
               value={this.state.queryText}
               onChange={(e) => this.textChanged(e)}
               onKeyPress={(e) => this.handlePressEnter(e)}
-              placeholder="Properties and regular expressions used for filtering(ex：categorie:person)"
+              placeholder="(ex：categorie:person)"
             />
             <IconButton type="submit" onClick={() => this.handleClickFilter()} >
               <Tooltip title="filter" placement="top">
@@ -474,11 +474,11 @@ class TuneDialog extends React.Component<TuneDialogProps, TuneDialogState> {
   render() {
     return (
       <>
-        <Tooltip title="Config network" placement="top">
+        <Tooltip title="Config" placement="top">
           <TuneIcon onClick={() => this.handleClickOpen()}/>
         </Tooltip>
         <Dialog open={this.state.open} onClose={() => {this.handleClose()}} aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">Config network</DialogTitle>
+          <DialogTitle id="form-dialog-title">Config</DialogTitle>
           <DialogContent id="tuneDialog">
             <PhysicsSwitch
               setOpt={this.props.setOpt}
@@ -563,11 +563,11 @@ class SettingDialog extends React.Component<SettingDialogProps, SettingDialogSta
   render() {
     return (
       <>
-        <Tooltip title="Config" placement="top">
+        <Tooltip title="Setting" placement="top">
           <SettingsIcon onClick={() => this.handleClickOpen()}/>
         </Tooltip>
         <Dialog open={this.state.open} onClose={() => {this.handleClose()}} aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">Config</DialogTitle>
+          <DialogTitle id="form-dialog-title">Setting</DialogTitle>
           <DialogContent id="tuneDialog">
             <InforBoardSwitch
               switchState={this.props.inforBoardSwitch}
