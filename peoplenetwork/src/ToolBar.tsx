@@ -25,7 +25,7 @@ const buildFileSelector = (setInfo: setInfoMth) => {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     });
-    if(res.data.status != '0') {
+    if(res.data.status !== '0') {
       // 获取失败
       return
     }
@@ -129,7 +129,7 @@ export default class ToolBar extends React.Component<ToolBarProps, object> {
   }
   getData = async () => {
     const res = await axios.get('/file/data');
-    if(res.data.status != '0') {
+    if(res.data.status !== '0') {
       // 获取失败
       return
     }
