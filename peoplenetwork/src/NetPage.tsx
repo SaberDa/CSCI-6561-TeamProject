@@ -58,9 +58,15 @@ class NetPage extends React.Component<NetPageProps, NetPageState> {
     } else {
       timepoints = item.url
     }
+    console.log(item.url)
     this.setState({timesInfo: new Array(timepoints.length)})
+    let proxyUrl = ''
+    if (item.url !== "data/empty.json") {
+      proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+    }
+
     Promise.all(
-      timepoints.map((t) => fetch(t.url).then(resp => resp.json()))
+      timepoints.map((t) => fetch(proxyUrl + t.url).then(resp => resp.json()))
     )
     .then( infos => {
       this.setState({
