@@ -110,13 +110,25 @@ const fileRouter = async (ctx, fileType, callback) => {
 const dataFile = path.join(__dirname, '../../networks.json');
 
 // 上传json文件后的回调
+// const jsonCallback = async (info) => {
+//   const { title: name, path: url } = info;
+//   console.log('test:' + url);
+//   const fileStr = await fs.readFileSync(dataFile);
+//   const data = fileStr ? JSON.parse(fileStr) : [];
+//   data.push({ name, url });
+//   fs.writeFile(dataFile, JSON.stringify(data, null, 2), function(err) {
+//     if(err) {
+//       console.log('write networks.json fail');
+//     }
+//   });
+// }
 const jsonCallback = async (info) => {
-  const { title: name, path: url } = info;
-  console.log('test:' + url);
+  const {title: name, path: url} = info;
   const fileStr = await fs.readFileSync(dataFile);
   const data = fileStr ? JSON.parse(fileStr) : [];
-  data.push({ name, url });
-  fs.writeFile(dataFile, JSON.stringify(data, null, 2), function(err) {
+  const titleImg = "imgs/default.png";
+  data.push({ name, url, titleImg });
+  fs.writeFile(dataFile, JSON.stringify(data, null, 3), function(err) {
     if(err) {
       console.log('write networks.json fail');
     }
