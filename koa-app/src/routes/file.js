@@ -51,12 +51,12 @@ const uploadFile = async (ctx, fileType) => {
   const fieldname = ctx.request.files['file'];
   if(!fieldname) {
     data.status = '1';
-    data.msg = `未找到文件`;
+    data.msg = `Can not find file`;
     return data
   }
   if(fieldname.length > 1) {
     data.status = '1';
-    data.msg = `请选择单个文件上传`;
+    data.msg = `Please choose single file to upload`;
     return data
   }
 
@@ -67,7 +67,7 @@ const uploadFile = async (ctx, fileType) => {
     if(fileType) {
       if(suffix != fileType) {
         data.status = '1';
-        data.msg = `请上传${fileType}文件`;
+        data.msg = `Please upload ${fileType} file`;
         return data
       }
     }
@@ -97,7 +97,7 @@ const fileRouter = async (ctx, fileType, callback) => {
         if(callback) callback(data);
         ctx.body = outData(data);
       }else{
-        ctx.body = outError('上传失败');
+        ctx.body = outError('Update Fail');
       }
     }
   }catch(e) {
@@ -106,10 +106,10 @@ const fileRouter = async (ctx, fileType, callback) => {
 
 }
 
-// networks.json 的文件路径
+// networks.json data URL
 const dataFile = path.join(__dirname, '../../networks.json');
 
-// 上传json文件后的回调
+// Call back after uploading JSON file
 // const jsonCallback = async (info) => {
 //   const { title: name, path: url } = info;
 //   console.log('test:' + url);
@@ -135,13 +135,13 @@ const jsonCallback = async (info) => {
   });
 }
 
-// 文件上传
+// File upload
 router.post('/', (ctx) => fileRouter(ctx));
 
-// json上传
+// JSON upload
 router.post('/json', (ctx) => fileRouter(ctx, 'json', jsonCallback));
 
-// 获取 networks.json 的数据
+// get networks.json data
 router.get('/data', async (ctx) => {
   try {
     const fileStr = await fs.readFileSync(dataFile);

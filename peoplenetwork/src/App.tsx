@@ -77,7 +77,7 @@ class Home extends React.Component<HomeProps, object> {
     let items = this.props.items
     return (
       <div className="App">
-        <Header title="People Relationship Network -- Prototype Version"/>
+        <Header title="People Relationship Network"/>
         <div className="contents">
           <div className="container">
             <Cards items={items}/>

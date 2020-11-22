@@ -1,1 +1,17 @@
-[]
+[
+   {
+      "name": "KaraNoKyoukai",
+      "url": "uploadFiles/20201120/1605926139492.json",
+      "titleImg": "imgs/KaraNoKyoukai/title.jpg"
+   },
+   {
+      "name": "GameOfThrones",
+      "url": "/uploadFiles/20201121/1605982998697.json",
+      "titleImg": "imgs/GameOfThrones/title.png"
+   },
+   {
+      "name": "StarWars",
+      "url": "/uploadFiles/20201121/1606001825495.json",
+      "titleImg": "imgs/StarWars/title.png"
+   }
+]

@@ -672,8 +672,8 @@ class ImportDialog extends React.Component<ImportDialogProps, ImportDialogState>
   render() {
     return (
       <>
-        {/* <button onClick={() => this.handleClickOpen()}>Import basic data</button> */}
-        <button onClick={() => this.handleClickOpen()}> TODO </button>
+        <button onClick={() => this.handleClickOpen()}>Import basic data</button>
+        {/* <button onClick={() => this.handleClickOpen()}> TODO </button> */}
         <Dialog open={this.state.open} onClose={() => {this.handleClose()}} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Import from data</DialogTitle>
 

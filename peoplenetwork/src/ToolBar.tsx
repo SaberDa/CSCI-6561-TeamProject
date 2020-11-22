@@ -26,10 +26,10 @@ const buildFileSelector = (setInfo: setInfoMth) => {
       }
     });
     if(res.data.status !== '0') {
-      // 获取失败
+      // Get fail
       return
     }
-    // 上传成功了
+    // Upload successfully
     console.log(res.data.data)
     return
     // let reader = new FileReader()
@@ -109,7 +109,7 @@ class UploadBtn1 extends React.Component<UploadBtnProps1, UploadBtnState1> {
   }
   
   render(){
-    return <button onClick={this.handleFileSelect1}>打开文件</button>
+    return <button onClick={this.handleFileSelect1}>Open File (JSON)</button>
   }
 }
 
@@ -130,7 +130,7 @@ export default class ToolBar extends React.Component<ToolBarProps, object> {
   getData = async () => {
     const res = await axios.get('/file/data');
     if(res.data.status !== '0') {
-      // 获取失败
+      // Get fail
       return
     }
     console.log(res.data.data)
